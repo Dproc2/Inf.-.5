@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Մուտք | ԹԳՀԳ</title>
+<title>ԹԳՀԳ | 5-րդ դասարան</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,39 +17,67 @@ box-sizing:border-box;
 
 body{
 font-family:'Montserrat',sans-serif;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
 background:
+radial-gradient(circle at top left,#4f46e5 0%,transparent 30%),
+radial-gradient(circle at bottom right,#9333ea 0%,transparent 30%),
 linear-gradient(135deg,#0f172a,#111827,#1e1b4b);
-overflow:hidden;
 color:white;
+min-height:100vh;
+overflow-x:hidden;
 }
 
-.card{
-width:90%;
-max-width:420px;
-padding:40px 30px;
-border-radius:30px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(14px);
-border:1px solid rgba(255,255,255,0.12);
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:
+linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-1;
+}
+
+.container{
+width:92%;
+max-width:1300px;
+margin:auto;
+padding:30px 0 60px;
+}
+
+.hero{
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
+padding:30px 10px;
 }
 
-h1{
-font-size:50px;
-margin-bottom:10px;
-background:linear-gradient(90deg,#fff,#a78bfa,#60a5fa);
+.hero h1{
+font-size:72px;
+font-weight:800;
+letter-spacing:6px;
+background:linear-gradient(90deg,#fff,#c084fc,#60a5fa);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+margin-bottom:10px;
 }
 
-p{
+.hero p{
 color:#d1d5db;
-margin-bottom:30px;
+font-size:18px;
+}
+
+.login-box{
+max-width:500px;
+margin:30px auto;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+padding:30px;
+border-radius:26px;
+backdrop-filter:blur(12px);
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+
+.login-box h2{
+margin-bottom:20px;
+text-align:center;
 }
 
 input{
@@ -61,7 +89,7 @@ border-radius:14px;
 background:rgba(255,255,255,0.12);
 color:white;
 font-size:16px;
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
 input::placeholder{
@@ -82,13 +110,148 @@ transition:0.3s;
 }
 
 button:hover{
-transform:scale(1.03);
+transform:scale(1.02);
 }
 
 .error{
 margin-top:15px;
+text-align:center;
 color:#fca5a5;
+font-size:15px;
+font-weight:600;
+}
+
+.dashboard{
+display:none;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:35px;
+padding:20px;
+background:rgba(255,255,255,0.08);
+border-radius:24px;
+border:1px solid rgba(255,255,255,0.1);
+}
+
+.student-info h2{
+font-size:28px;
+margin-bottom:8px;
+}
+
+.student-info p{
+color:#cbd5e1;
+}
+
+.logout-btn{
+padding:12px 24px;
+border:none;
+border-radius:14px;
+cursor:pointer;
+font-weight:700;
+background:#ef4444;
+color:white;
+}
+
+.section-title{
+margin:30px 0 18px;
+font-size:28px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:18px;
+}
+
+.card{
+position:relative;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.12);
+border-radius:24px;
+padding:22px 18px;
+overflow:hidden;
+backdrop-filter:blur(12px);
+transition:0.35s;
+min-height:180px;
+}
+
+.card::before{
+content:"";
+position:absolute;
+width:160px;
+height:160px;
+background:linear-gradient(45deg,#8b5cf6,#3b82f6);
+border-radius:50%;
+top:-90px;
+right:-90px;
+opacity:0.2;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 14px 30px rgba(0,0,0,0.35);
+}
+
+.card h3{
+position:relative;
+z-index:2;
+font-size:22px;
+margin-bottom:12px;
+}
+
+.card p{
+position:relative;
+z-index:2;
+color:#d1d5db;
+margin-bottom:18px;
+line-height:1.5;
 font-size:14px;
+}
+
+.card a{
+position:relative;
+z-index:2;
+display:inline-block;
+padding:11px 22px;
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:700;
+background:linear-gradient(90deg,#7c3aed,#2563eb);
+}
+
+.footer{
+margin-top:50px;
+padding-top:25px;
+border-top:1px solid rgba(255,255,255,0.12);
+text-align:center;
+color:#cbd5e1;
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:48px;
+}
+
+.topbar{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.student-info h2{
+font-size:22px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -96,35 +259,234 @@ font-size:14px;
 
 <body>
 
-<div class="card">
+<div class="container">
 
+<div class="hero">
 <h1>ԹԳՀԳ</h1>
+<p>Թվային գրագիտություն և Համակարգչային գիտություն</p>
+</div>
 
-<p>Մուտք գործիր համակարգ</p>
+<!-- LOGIN -->
 
-<input type="text" id="username" placeholder="Գրիր անուն և ազգանուն">
+<div class="login-box" id="loginBox">
 
-<button onclick="login()">Մուտք</button>
+<h2>Մուտք դասարան</h2>
+
+<input type="text" id="studentInput" placeholder="Գրիր անուն ազգանուն">
+
+<button onclick="login()">Մուտք գործել</button>
 
 <div class="error" id="error"></div>
 
 </div>
 
+<!-- DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+<div class="topbar">
+
+<div class="student-info">
+<h2 id="welcome"></h2>
+<p id="classInfo"></p>
+<p id="timeInfo"></p>
+</div>
+
+<button class="logout-btn" onclick="logout()">Դուրս գալ</button>
+
+</div>
+
+<h2 class="section-title">📘 QR Առաջադրանքներ</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Բաժին 1</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 1 🚀</p>
+<a href="https://learningapps.org/watch?v=puugz0s1323" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 2</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 2 📘</p>
+<a href="https://learningapps.org/watch?v=pht75sr5c23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 3</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 3 ✅</p>
+<a href="https://learningapps.org/watch?v=p7frhxdqa23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 4</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 4 💡</p>
+<a href="https://learningapps.org/watch?v=pkj5eqnac22" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 5</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 5 🔁</p>
+<a href="https://learningapps.org/watch?v=pnxgrhw4323" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 6</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 6 🎯</p>
+<a href="https://learningapps.org/watch?v=pyeqzunna23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 7</h3>
+<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 7 📚</p>
+<a href="https://learningapps.org/watch?v=pfvey2o1k23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 8</h3>
+<p>ՏԵՔԱՏԱՅԻՆ ԽՄԲԱԳՐԻՉ</p>
+<a href="https://learningapps.org/watch?v=ppt2t9vy323" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 9</h3>
+<p>ՏԵՔՍՏԱՅԻՆ ՓԱՍՏԱԹՈՒՂԹ</p>
+<a href="https://learningapps.org/watch?v=pqpdk6f1j23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 10</h3>
+<p>ՀԱՄԱՊԱՏԱՍԽԱՆԵՑՐՈՒ ✅</p>
+<a href="https://learningapps.org/watch?v=px9hsu76t20" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 11</h3>
+<p>ՄԻԱՎՈՐԻՐ ✅</p>
+<a href="https://learningapps.org/watch?v=pu9qdd05v23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 12</h3>
+<p>ԼՐԱՑՐՈՒ․․․</p>
+<a href="https://learningapps.org/watch?v=pxus0m9y523" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 13</h3>
+<p>ԼՐԱՑՐՈՒ</p>
+<a href="https://learningapps.org/watch?v=py3g60ugj23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 14</h3>
+<p>ԳՏԻՐ ԶՈՒՅԳԸ 🔁</p>
+<a href="https://learningapps.org/watch?v=pqzsrna0n23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 15</h3>
+<p>ԽՄԲԱՎՈՐԻՐ 🚀</p>
+<a href="https://learningapps.org/watch?v=p3c65x0ok23" target="_blank">Բացել</a>
+</div>
+
+</div>
+
+<div class="footer">
+<p>Վ․ Բախշյանի անվան թիվ 2 հիմն․ դպրոց</p>
+<p>© Ա․ Մանուկյան</p>
+</div>
+
+</div>
+
+</div>
+
 <script>
+
+const students = {
+
+"Ավագյան Անգելինա":{
+full:"Ավագյան Անգելինա Ավագի",
+class:"5Ա"
+},
+
+"Աղաբաբյան Մարի":{
+full:"Աղաբաբյան Մարի Վարուժանի",
+class:"5Ա"
+},
+
+"Աղաջանյան Հակոբ":{
+full:"Աղաջանյան Հակոբ Խորենի",
+class:"5Ա"
+},
+
+"Առաքելյան Լիլի":{
+full:"Առաքելյան Լիլի Կարլենի",
+class:"5Բ"
+},
+
+"Ավագյան Արման":{
+full:"Ավագյան Արման Էդիկի",
+class:"5Բ"
+},
+
+"Աբովյան Էրվին":{
+full:"Աբովյան Էրվին Վահեի",
+class:"5Բ"
+}
+
+};
 
 function login(){
 
-const username=document.getElementById("username").value.trim();
+const input = document.getElementById("studentInput").value.trim();
 
-if(username.length < 3){
-document.getElementById("error").innerText="Լրացրու ճիշտ անուն";
-return;
+if(students[input]){
+
+localStorage.setItem("student",JSON.stringify(students[input]));
+
+showDashboard();
+
+}else{
+
+document.getElementById("error").innerText =
+"Տվյալ դասարանում այդ անունով աշակերտ չկա";
+
 }
 
-localStorage.setItem("studentName",username);
+}
 
-window.location.href="dashboard.html";
+function showDashboard(){
 
+const student = JSON.parse(localStorage.getItem("student"));
+
+if(!student) return;
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("dashboard").style.display="block";
+
+document.getElementById("welcome").innerText =
+"Բարի գալուստ, " + student.full;
+
+document.getElementById("classInfo").innerText =
+"Դասարան՝ " + student.class;
+
+const now = new Date();
+
+document.getElementById("timeInfo").innerText =
+"Մուտք՝ " + now.toLocaleString();
+
+}
+
+function logout(){
+
+localStorage.removeItem("student");
+location.reload();
+
+}
+
+if(localStorage.getItem("student")){
+showDashboard();
 }
 
 </script>
