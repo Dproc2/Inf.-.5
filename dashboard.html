@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ԹԳՀԳ Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#0f172a;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+h1{
+font-size:50px;
+margin-bottom:15px;
+}
+
+p{
+font-size:20px;
+margin-bottom:40px;
+color:#cbd5e1;
+}
+
+.card{
+max-width:500px;
+margin:auto;
+padding:30px;
+border-radius:24px;
+background:rgba(255,255,255,0.08);
+}
+
+a{
+display:block;
+margin-top:20px;
+padding:15px;
+border-radius:14px;
+text-decoration:none;
+background:linear-gradient(90deg,#7c3aed,#2563eb);
+color:white;
+font-weight:700;
+}
+
+.logout{
+background:#ef4444;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>ԹԳՀԳ</h1>
+
+<p id="welcome"></p>
+
+<div class="card">
+
+<h2>Առաջադրանքներ</h2>
+
+<a href="https://learningapps.org/watch?v=puugz0s1323" target="_blank">
+Բացել առաջադրանքը
+</a>
+
+<a class="logout" href="#" onclick="logout()">
+Դուրս գալ
+</a>
+
+</div>
+
+<script>
+
+const student=localStorage.getItem("studentName");
+
+if(!student){
+window.location.href="index.html";
+}
+
+document.getElementById("welcome").innerText=
+"Բարի գալուստ, "+student;
+
+function logout(){
+localStorage.removeItem("studentName");
+window.location.href="index.html";
+}
+
+</script>
+
+</body>
+</html>
