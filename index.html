@@ -65,7 +65,7 @@ font-size:18px;
 }
 
 .login-box{
-max-width:500px;
+max-width:520px;
 margin:30px auto;
 background:rgba(255,255,255,0.08);
 border:1px solid rgba(255,255,255,0.12);
@@ -79,6 +79,7 @@ text-align:center;
 margin-bottom:20px;
 }
 
+select,
 input{
 width:100%;
 padding:15px;
@@ -89,6 +90,10 @@ background:rgba(255,255,255,0.12);
 color:white;
 font-size:16px;
 margin-bottom:18px;
+}
+
+select option{
+color:black;
 }
 
 input::placeholder{
@@ -265,6 +270,12 @@ align-items:flex-start;
 
 <h2>Մուտք դասարան</h2>
 
+<select id="classSelect">
+<option value="">Ընտրիր դասարանը</option>
+<option value="5Ա">5Ա դասարան</option>
+<option value="5Բ">5Բ դասարան</option>
+</select>
+
 <input type="text" id="studentInput" placeholder="Գրիր անուն ազգանուն">
 
 <button onclick="login()">Մուտք գործել</button>
@@ -291,46 +302,77 @@ align-items:flex-start;
 
 <div class="cards">
 
+<div class="cards">
+
 <div class="card">
 <h3>Բաժին 1</h3>
+<p>ՏԵՔՍՏԱՅԻՆ ԽՄԲԱԳՐԻՉ</p>
+<a href="https://learningapps.org/watch?v=ppt2t9vy323" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 2</h3>
+<p>ՏԵՔՍՏԱՅԻՆ ՓԱՍՏԱԹՈՒՂԹ</p>
+<a href="https://learningapps.org/watch?v=pqpdk6f1j23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 3</h3>
+<p>ՀԱՄԱՊԱՏԱՍԽԱՆԵՑՐՈՒ ✅</p>
+<a href="https://learningapps.org/watch?v=px9hsu76t20" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 4</h3>
+<p>ՄԻԱՎՈՐԻՐ ✅</p>
+<a href="https://learningapps.org/watch?v=pu9qdd05v23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 5</h3>
+<p>ԼՐԱՑՐՈՒ․․․</p>
+<a href="https://learningapps.org/watch?v=pxus0m9y523" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 6</h3>
+<p>ԼՐԱՑՐՈՒ</p>
+<a href="https://learningapps.org/watch?v=py3g60ugj23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 7</h3>
+<p>ԳՏԻՐ ԶՈՒՅԳԸ 🔁</p>
+<a href="https://learningapps.org/watch?v=pqzsrna0n23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 8</h3>
+<p>ԽՄԲԱՎՈՐԻՐ 🚀</p>
+<a href="https://learningapps.org/watch?v=p3c65x0ok23" target="_blank">Բացել</a>
+</div>
+
+<div class="card">
+<h3>Բաժին 9</h3>
 <p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 1 🚀</p>
 <a href="https://learningapps.org/watch?v=puugz0s1323" target="_blank">Բացել</a>
 </div>
 
 <div class="card">
-<h3>Բաժին 2</h3>
+<h3>Բաժին 10</h3>
 <p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 2 📘</p>
 <a href="https://learningapps.org/watch?v=pht75sr5c23" target="_blank">Բացել</a>
 </div>
 
 <div class="card">
-<h3>Բաժին 3</h3>
+<h3>Բաժին 11</h3>
 <p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 3 ✅</p>
 <a href="https://learningapps.org/watch?v=p7frhxdqa23" target="_blank">Բացել</a>
 </div>
 
 <div class="card">
-<h3>Բաժին 4</h3>
+<h3>Բաժին 12</h3>
 <p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 4 💡</p>
-<a href="https://learningapps.org/watch?v=pkj5eqnac22" target="_blank">Բացել</a>
-</div>
-
-<div class="card">
-<h3>Բաժին 5</h3>
-<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 5 🔁</p>
-<a href="https://learningapps.org/watch?v=pnxgrhw4323" target="_blank">Բացել</a>
-</div>
-
-<div class="card">
-<h3>Բաժին 6</h3>
-<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 6 🎯</p>
-<a href="https://learningapps.org/watch?v=pyeqzunna23" target="_blank">Բացել</a>
-</div>
-
-<div class="card">
-<h3>Բաժին 7</h3>
-<p>ՆՈՐ ԱՌԱՋԱԴՐԱՆՔ 7 📚</p>
-<a href="https://learningapps.org/watch?v=pfvey2o1k23" target="_blank">Բացել</a>
 </div>
 
 </div>
@@ -365,59 +407,127 @@ measurementId: "G-MECKZZSEKN"
 };
 
 const app = initializeApp(firebaseConfig);
-
 const db = getFirestore(app);
 
 const students = {
 
-"Ավագյան Անգելինա":{
-full:"Ավագյան Անգելինա Ավագի",
-class:"5Ա"
+"5Ա":{
+
+"Ավագյան Անգելինա":"Ավագյան Անգելինա Ավագի",
+"Աղաբաբյան Մարի":"Աղաբաբյան Մարի Վարուժանի",
+"Աղաջանյան Հակոբ":"Աղաջանյան Հակոբ Խորենի",
+"Անթանեսյան Յանա":"Անթանեսյան Յանա Սահակի",
+"Ավետիսյան Նարեկ":"Ավետիսյան Նարեկ Պետրոսի",
+"Արշակյան Անի":"Արշակյան Անի Սարգիսի",
+"Գալստյան Մյասնիկ":"Գալստյան Մյասնիկ Վարդանի",
+"Գասպարյան Լիլիթ":"Գասպարյան Լիլիթ Սամվելի",
+"Գեվորգյան Մարի":"Գեվորգյան Մարի Ստյոպա",
+"Գեվորգյան Ռուբեն":"Գեվորգյան Ռուբեն Խաչիկի",
+"Եսայան Մարիաննա":"Եսայան Մարիաննա Գնելի",
+"Զադորյան Մարի":"Զադորյան Մարի Սարո",
+"Զիրոյան Հենրի":"Զիրոյան Հենրի Արտյոմի",
+"Իսպիրյան Արշակ":"Իսպիրյան Արշակ Արմանի",
+"Հարությունյան Անի":"Հարությունյան Անի Էդգարի",
+"Հակոբյան Էվա":"Հակոբյան Էվա Շիրազի",
+"Հակոբյան Լինա":"Հակոբյան Լինա Գագիկի",
+"Հակոբյան Սերգեյ":"Հակոբյան Սերգեյ Խաչիկի",
+"Հայրապետյան Արեգ":"Հայրապետյան Արեգ Ժորայի",
+"Հայրապետյան Արսեն":"Հայրապետյան Արսեն Սերգեյ",
+"Հարությունյան Աշոտ":"Հարությունյան Աշոտ Սուրենի",
+"Հարությունյան Արփի":"Հարությունյան Արփի Արթուրի",
+"Մայիսյան Նարեկ":"Մայիսյան Նարեկ Ահարոնի",
+"Մուրադյան Մանե":"Մուրադյան Մանե Լեվոնի",
+"Մխիթարյան Մարի":"Մխիթարյան Մարի Աշոտի",
+"Մուրադյան Նվարդ":"Մուրադյան Նվարդ Գեվորգի",
+"Ներսիսյան Հայկ":"Ներսիսյան Հայկ Դավիթի",
+"Պետրոսյան Մանվել":"Պետրոսյան Մանվել Համբարձումի",
+"Ստեփանյան Վահան":"Ստեփանյան Վահան Վլադիմիրի",
+"Քամալյան Վիկա":"Քամալյան Վիկա Դավիթի",
+"Օհանջանյան Արման":"Օհանջանյան Արման Գրիգոր"
+
 },
 
-"Աղաբաբյան Մարի":{
-full:"Աղաբաբյան Մարի Վարուժանի",
-class:"5Ա"
-},
+"5Բ":{
 
-"Աղաջանյան Հակոբ":{
-full:"Աղաջանյան Հակոբ Խորենի",
-class:"5Ա"
-},
+"Առաքելյան Լիլի":"Առաքելյան Լիլի Կարլենի",
+"Ավագյան Արման":"Ավագյան Արման Էդիկի",
+"Աբովյան Էրվին":"Աբովյան Էրվին Վահեի",
+"Բալյան Մարիամ":"Բալյան Մարիամ Հակոբի",
+"Բաղդասարյան Վիոլետտա":"Բաղդասարյան Վիոլետտա Հովիկի",
+"Գալստյան Ալեքս":"Գալստյան Ալեքս Վարդանի",
+"Գալստյան Արթուր":"Գալստյան Արթուր Սեվակ",
+"Գալստյան Մարի":"Գալստյան Մարի Արտակի",
+"Գրեյան Մարգարիտա":"Գրեյան Մարգարիտա Վահրամ",
+"Գրիգորյան Դավիթ":"Գրիգորյան Դավիթ Արգամի",
+"Համբարձումյան Սոնյա":"Համբարձումյան Սոնյա Կարենի",
+"Դավթյան Դավիթ":"Դավթյան Դավիթ Էդվարդի",
+"Էլոյան Նոնա":"Էլոյան Նոնա Հովհաննեսի",
+"Իսրայելյան Արամ":"Իսրայելյան Արամ Հարությունի",
+"Խաչատրյան Լիլիթ":"Խաչատրյան Լիլիթ Խաչիկի",
+"Հայրապետյան Էլեն":"Հայրապետյան Էլեն Գեղամ",
+"Հարոյան Արմեն":"Հարոյան Արմեն Արսեն",
+"Հովհաննիսյան Վանուշ":"Հովհաննիսյան Վանուշ Հովհաննեսի",
+"Մկրտչյան Աիդա":"Մկրտչյան Աիդա Մուրադ",
+"Հովոյան Վարդուհի":"Հովոյան Վարդուհի Վիգենի",
+"Մարգարյան Նարեկ":"Մարգարյան Նարեկ Ցոլակի",
+"Մինասյան Մարի":"Մինասյան Մարի Դավիթի",
+"Մխեյան Յանա":"Մխեյան Յանա Դավիթի",
+"Մխիթարյան Ալեքս":"Մխիթարյան Ալեքս Արամի",
+"Մկրտչյան Դավիթ":"Մկրտչյան Դավիթ Արման",
+"Պողոսյան Արեվ":"Պողոսյան Արեվ Գեղամի",
+"Սարգսյան Մերուժան":"Սարգսյան Մերուժան Արսեն",
+"Սաֆարյան Էնջի":"Սաֆարյան Էնջի Արմենի",
+"Սումարյան Արամ":"Սումարյան Արամ Աշոտի",
+"Ստեփանյան Էլեն":"Ստեփանյան Էլեն Արամայիսի",
+"Վարդանյան Ռուստամ":"Վարդանյան Ռուստամ Վարդանի",
+"Վարդումյան Արսեն":"Վարդումյան Արսեն Արամայիսի",
+"Փախանյան Նարե":"Փախանյան Նարե Դավիթի"
 
-"Առաքելյան Լիլի":{
-full:"Առաքելյան Լիլի Կարլենի",
-class:"5Բ"
-},
-
-"Ավագյան Արման":{
-full:"Ավագյան Արման Էդիկի",
-class:"5Բ"
-},
-
-"Աբովյան Էրվին":{
-full:"Աբովյան Էրվին Վահեի",
-class:"5Բ"
 }
 
 };
 
 window.login = async function(){
 
-const input =
+const selectedClass =
+document.getElementById("classSelect").value;
+
+const studentName =
 document.getElementById("studentInput").value.trim();
 
-if(students[input]){
+if(!selectedClass){
 
-const student = students[input];
+document.getElementById("error").innerText =
+"Ընտրիր դասարանը";
 
-localStorage.setItem("student",
-JSON.stringify(student));
+return;
+
+}
+
+if(
+students[selectedClass] &&
+students[selectedClass][studentName]
+){
+
+const fullName =
+students[selectedClass][studentName];
+
+const studentData = {
+
+full: fullName,
+class: selectedClass
+
+};
+
+localStorage.setItem(
+"student",
+JSON.stringify(studentData)
+);
 
 await addDoc(collection(db,"logins"),{
 
-name: student.full,
-class: student.class,
+name: fullName,
+class: selectedClass,
 time: new Date().toLocaleString()
 
 });
@@ -451,8 +561,7 @@ document.getElementById("classInfo").innerText =
 "Դասարան՝ " + student.class;
 
 document.getElementById("timeInfo").innerText =
-"Մուտք գործելու ժամանակ՝ " +
-new Date().toLocaleString();
+"Մուտք՝ " + new Date().toLocaleString();
 
 }
 
